@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabaseAdmin";
+import { getPool } from "@/lib/db";
+
+export const runtime = "nodejs";
 
 export async function POST(request: Request) {
   try {
@@ -19,47 +21,59 @@ export async function POST(request: Request) {
       );
     }
 
-    const { data, error } = await supabaseAdmin
-      .from("free_registrations")
-      .insert({
-        owner_name: ownerName,
-        business_name: businessName,
+    const pool = getPool();
+
+    const result = await pool.query(
+      `
+      INSERT INTO free_registrations (
+        owner_name,
+        business_name,
         whatsapp,
         city,
-        vendor_type: vendorType,
-        instagram: body.instagram ? String(body.instagram).trim() : null,
-        current_problem: body.currentProblem
-          ? String(body.currentProblem).trim()
-          : null,
+        vendor_type,
+        instagram,
+        current_problem,
         goal,
-        package_interest: body.packageInterest
+        package_interest,
+        notes,
+        source,
+        status
+      )
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+      RETURNING id
+      `,
+      [
+        ownerName,
+        businessName,
+        whatsapp,
+        city,
+        vendorType,
+        body.instagram ? String(body.instagram).trim() : null,
+        body.currentProblem ? String(body.currentProblem).trim() : null,
+        goal,
+        body.packageInterest
           ? String(body.packageInterest).trim()
           : "Free Vendor Hoki",
-        notes: body.notes ? String(body.notes).trim() : null,
-        source: "solusivendor.com/free-register",
-        status: "NEW",
-      })
-      .select("id")
-      .single();
-
-    if (error) {
-      console.error("SUPABASE_INSERT_ERROR", error);
-
-      return NextResponse.json(
-        { message: "Gagal menyimpan data registrasi." },
-        { status: 500 }
-      );
-    }
+        body.notes ? String(body.notes).trim() : null,
+        "solusivendor.com/free-register",
+        "NEW",
+      ]
+    );
 
     return NextResponse.json({
       message: "Registration submitted successfully.",
-      id: data.id,
+      id: result.rows[0].id,
     });
   } catch (error) {
     console.error("FREE_REGISTER_ERROR", error);
 
     return NextResponse.json(
-      { message: "Terjadi kesalahan server." },
+      {
+        message:
+          error instanceof Error
+            ? error.message
+            : "Terjadi kesalahan server.",
+      },
       { status: 500 }
     );
   }
