@@ -4,15 +4,16 @@ import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 
 const whatsappTemplate =
-  "https://wa.me/6281234567890?text=Halo%20SolusiVendor%2C%20saya%20mau%20beli%20template%20website%2099rb.";
+  "https://wa.me/62895345902896?text=Halo%20SolusiVendor%2C%20saya%20mau%20beli%20template%20website%2099rb.";
 
 const whatsappService =
-  "https://wa.me/6281234567890?text=Halo%20SolusiVendor%2C%20saya%20mau%20konsultasi%20buat%20website%20vendor%20terima%20beres.";
+  "https://wa.me/62895345902896?text=Halo%20SolusiVendor%2C%20saya%20mau%20konsultasi%20buat%20website%20vendor%20terima%20beres.";
 
 const navItems = [
   { label: "Work", href: "#work" },
   { label: "Template", href: "#templates" },
   { label: "Pricing", href: "#pricing" },
+  { label: "Server", href: "#server" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -36,33 +37,37 @@ const stats = [
 
 const projectSlides = [
   {
-    title: "Colorize Visual Live Streaming",
-    category: "Live Streaming",
-    location: "Surabaya",
-    image: "/projects/colorize-1.jpg",
-    desc: "Landing page premium untuk vendor live streaming dengan portfolio, layanan, pricelist, dokumentasi, FAQ, dan CTA WhatsApp.",
-  },
-  {
-    title: "Wedding Vendor Portfolio",
-    category: "Wedding Organizer",
-    location: "Surabaya",
-    image: "/projects/wedding-1.jpg",
-    desc: "Website elegan untuk menampilkan paket wedding, gallery dekorasi, workflow konsultasi, dan tombol inquiry.",
-  },
-  {
-    title: "Sound System Pricelist",
+    title: "ARISTA Production",
     category: "Sound System",
-    location: "East Java",
-    image: "/projects/sound-1.jpg",
-    desc: "Halaman vendor sound system dengan katalog paket, portfolio event, pricelist, dan CTA WhatsApp yang jelas.",
+    location: "Gresik",
+    url: "aristaproduction.com",
+    previewUrl: "https://aristaproduction.com",
+    desc: "Website company profile untuk vendor sound system, LED videotron, lighting, custom audio cable, dan event production. Dibuat dengan tampilan premium, CTA WhatsApp, portfolio, layanan, dan struktur landing page yang siap jualan.",
   },
-  {
-    title: "Lighting Stage Showcase",
-    category: "Lighting & Stage",
-    location: "Indonesia",
-    image: "/projects/lighting-1.jpg",
-    desc: "Showcase visual untuk vendor lighting, stage, rigging, dan multimedia agar terlihat lebih profesional.",
-  },
+  // {
+  //   title: "Colorize Visual",
+  //   category: "Live Streaming",
+  //   location: "Surabaya",
+  //   url: "colorizevisual.com",
+  //   previewUrl: "https://colorizevisual.com",
+  //   desc: "Landing page untuk vendor live streaming dengan layanan multi-camera, Zoom, YouTube, Instagram, TikTok, portfolio event, pricelist, FAQ, dan CTA WhatsApp.",
+  // },
+  // {
+  //   title: "Wedding Vendor Portfolio",
+  //   category: "Wedding Organizer",
+  //   location: "Surabaya",
+  //   url: "wedding.namavendor.com",
+  //   previewUrl: "https://solusivendor.com/templates/template2/",
+  //   desc: "Website elegan untuk menampilkan paket wedding, gallery dekorasi, workflow konsultasi, testimoni, dan tombol inquiry agar calon client lebih mudah percaya.",
+  // },
+  // {
+  //   title: "Sound System Pricelist",
+  //   category: "Sound System",
+  //   location: "East Java",
+  //   url: "sound.namavendor.com",
+  //   previewUrl: "https://solusivendor.com/templates/template1/",
+  //   desc: "Halaman vendor sound system dengan katalog paket, portfolio event, detail layanan, pricelist, dan CTA WhatsApp yang jelas.",
+  // },
 ];
 
 const templatePreview = [
@@ -107,7 +112,7 @@ const offers = [
   {
     label: "02 / DONE FOR YOU",
     title: "Terima Beres",
-    price: "Start Rp99rb",
+    price: "Start Rp149rb",
     desc: "Untuk vendor yang mau website langsung online tanpa ribet teknis.",
     href: "#pricing",
     cta: "See Packages",
@@ -180,7 +185,7 @@ const pricing = [
     desc: "Untuk 2 vendor tercepat setiap bulan.",
     yearly: "Rp299rb/tahun berikutnya",
     cta: "Klaim Promo",
-    href: whatsappService,
+    href: "/free-register",
     items: [
       "1 landing page",
       "Domain .my.id 1 tahun",
@@ -192,7 +197,7 @@ const pricing = [
   {
     badge: "STARTER",
     name: "Vendor Pemula",
-    price: "Rp99rb",
+    price: "Rp149rb",
     desc: "Website sederhana untuk mulai tampil profesional.",
     yearly: "Rp299rb/tahun berikutnya",
     cta: "Ambil Paket",
@@ -248,6 +253,107 @@ const comparisons = [
   ["Terlihat seperti vendor kecil", "Lebih siap untuk client besar"],
 ];
 
+const businessTypes = [
+  "UMKM",
+  "Cafe & Resto",
+  "Toko Online",
+  "Rental",
+  "Kursus",
+  "Company Profile",
+  "Personal Brand",
+  "Agency",
+  "Komunitas",
+  "Gereja / Ministry",
+  "Event Organizer",
+  "Jasa Lokal",
+];
+
+const customWebServices = [
+  {
+    title: "Landing Pages",
+    desc: "Halaman promosi untuk produk, jasa, campaign, event, atau iklan yang butuh konversi cepat.",
+  },
+  {
+    title: "Sales System",
+    desc: "Bantu susun alur penawaran, katalog, pricelist, CTA WhatsApp, dan halaman yang memudahkan calon customer membeli.",
+  },
+  {
+    title: "Admin Panel",
+    desc: "Untuk update konten, portfolio, produk, artikel, katalog, atau data tertentu tanpa edit code manual.",
+  },
+  {
+    title: "HR & Internal Tools",
+    desc: "Bisa custom untuk kebutuhan absensi, data karyawan, form internal, dashboard, atau workflow sederhana.",
+  },
+];
+
+const handledByUs = [
+  "Server",
+  "SSL",
+  "Hosting",
+  "Domain",
+  "SEO basic",
+  "Admin panel",
+  "Copywriting",
+  "Struktur halaman",
+  "CTA WhatsApp",
+  "Mobile responsive",
+];
+
+const serverPlans = [
+  {
+    name: "Micro",
+    price: "10rb",
+    normalCompare: "±25rb",
+    saving: "Hemat ±15rb/bulan",
+    storage: "10GB",
+    traffic: "Unlimited",
+    domain: "1 website",
+    email: "Optional",
+    ssl: "Included",
+    speed: "Same speed",
+    desc: "Cocok untuk company profile, landing page, portfolio, pricelist, dan halaman promosi ringan.",
+  },
+  {
+    name: "Grow",
+    price: "25rb",
+    normalCompare: "±60rb",
+    saving: "Hemat ±35rb/bulan",
+    storage: "25GB",
+    traffic: "Unlimited",
+    domain: "3 website",
+    email: "Optional",
+    ssl: "Included",
+    speed: "Same speed",
+    desc: "Untuk bisnis yang punya lebih banyak gambar, portfolio, katalog, dan beberapa halaman aktif.",
+  },
+  {
+    name: "Scale",
+    price: "Custom",
+    normalCompare: "Mulai ±160rb",
+    saving: "Custom sesuai kebutuhan",
+    storage: "Custom",
+    traffic: "Unlimited",
+    domain: "Custom",
+    email: "Optional",
+    ssl: "Included",
+    speed: "Same speed",
+    desc: "Butuh storage besar, banyak video, file download, atau sistem khusus? Kami sesuaikan dengan kebutuhan.",
+  },
+];
+
+const serverBenefits = [
+  "Unlimited traffic",
+  "Speed sama untuk semua paket",
+  "SSL included",
+  "Support domain custom",
+  "Cocok untuk website bisnis",
+  "Bisa upgrade storage",
+  "Bisa untuk landing page",
+  "Bisa untuk portfolio",
+  "Bisa untuk company profile",
+];
+
 const whyCheap = [
   {
     title: "Reusable vendor system",
@@ -269,24 +375,52 @@ const whyCheap = [
 
 const faqs = [
   {
-    q: "Apa bedanya template dan terima beres?",
-    a: "Template cocok untuk vendor yang ingin hemat dan edit sendiri. Terima beres cocok untuk vendor yang ingin website langsung siap online tanpa mengurus desain, konten, domain, hosting, dan setup teknis.",
+    q: "Apakah SolusiVendor cuma untuk vendor event?",
+    a: "Tidak. Awalnya SolusiVendor fokus ke vendor event, tapi kami juga bisa bantu UMKM, cafe, toko online, jasa lokal, company profile, personal brand, komunitas, sampai kebutuhan custom web sederhana.",
   },
   {
-    q: "Kenapa harganya bisa murah?",
-    a: "Karena SolusiVendor memakai sistem, template, dan komponen yang sudah disiapkan khusus untuk vendor event. Prosesnya lebih efisien dibanding membuat website dari nol setiap project.",
+    q: "Selain vendor event, bisa buat website apa saja?",
+    a: "Bisa untuk landing page produk, company profile, katalog layanan, pricelist online, website portfolio, halaman campaign, form registrasi, katalog produk, website komunitas, sampai sistem custom seperti HR, sales, atau admin panel sederhana.",
   },
   {
-    q: "Video di website bikin lag tidak?",
-    a: "Tidak harus. Video bisa dibuat ringan dengan kompresi, format MP4/WebM, lazy loading, ukuran file terkontrol, dan fallback poster. Kami bantu optimasi agar tetap terlihat premium tanpa mengorbankan speed.",
+    q: "Pakai template kah kak?",
+    a: "Untuk jasa pembuatan website terima beres, tidak kami buat asal pakai template yang sama. Kami susun design dan struktur sesuai identitas bisnis kamu. Prinsipnya authentic: satu design untuk satu vendor atau satu bisnis.",
   },
   {
-    q: "Kenapa tahun berikutnya ada biaya Rp299rb/tahun?",
-    a: "Biaya tahunan digunakan untuk perpanjangan domain, hosting/server, SSL, dan maintenance teknis dasar agar website tetap aktif. Jika dihitung, sekitar 700 perak per hari.",
+    q: "Kalau beli template, bedanya apa?",
+    a: "Template cocok untuk yang ingin hemat dan edit sendiri. Jasa terima beres cocok untuk yang ingin kami bantu susun sampai online, termasuk konten, tampilan, domain, hosting, SSL, dan setup teknis.",
+  },
+  {
+    q: "Bisa revisi?",
+    a: "Bisa kak. Kami bantu revisi sesuai scope paket sampai website terasa cocok untuk bisnismu. Tujuannya bukan sekadar online, tapi kamu puas dan percaya diri saat membagikan link website ke calon client.",
+  },
+  {
+    q: "Apa saja yang diurus kalau pakai jasa pembuatan website?",
+    a: "Kami bantu urus struktur halaman, copywriting dasar, layout, domain, hosting, SSL, SEO basic, CTA WhatsApp, optimasi mobile, dan jika paket mendukung bisa ditambah admin panel.",
+  },
+  {
+    q: "Kenapa biaya server bisa murah?",
+    a: "Karena kami menggunakan sistem server sendiri dan workflow yang efisien. Paket server mulai 10 ribu per bulan sudah dapat 10GB storage, unlimited traffic, SSL, dan cocok untuk website bisnis ringan.",
+  },
+  {
+    q: "Apakah server murah berarti murahan?",
+    a: "Tidak. Kami murah karena sistemnya efisien, bukan karena kualitasnya asal-asalan. Semua paket tetap dapat speed yang sama, unlimited traffic, SSL, dan bisa upgrade storage kalau kebutuhan website makin besar.",
+  },
+  {
+    q: "Kalau butuh storage lebih besar bisa?",
+    a: "Bisa. Untuk website dengan banyak foto, video, file download, atau sistem khusus, storage bisa custom. Tinggal hubungi kami, nanti kami sesuaikan dengan kebutuhan bisnis kamu.",
+  },
+  {
+    q: "Stop berpikir website itu mahal, maksudnya gimana?",
+    a: "Website tidak harus langsung mahal. Dengan biaya mulai sekitar 700 perak per hari, website kamu bisa online di internet, punya domain, hosting, SSL, dan link resmi yang bisa dibagikan ke calon customer.",
   },
   {
     q: "Apakah website bisa dicari di Google?",
     a: "Bisa dibantu struktur dasarnya, seperti domain resmi, meta title, description, heading, dan halaman yang jelas. Untuk kompetisi kata kunci besar, tetap butuh optimasi SEO lanjutan.",
+  },
+  {
+    q: "Video di website bikin lag tidak?",
+    a: "Tidak harus. Video bisa dibuat ringan dengan kompresi, format MP4/WebM, lazy loading, ukuran file terkontrol, dan fallback poster. Kami bantu optimasi agar tetap terlihat premium tanpa mengorbankan speed.",
   },
 ];
 
@@ -680,194 +814,298 @@ export default function HomePage() {
         </section>
 
         {/* WORK */}
-        <section
-          id="work"
-          className="relative z-10 bg-[#f4f0e8] px-4 py-24 text-black md:px-8 md:py-32"
-        >
-          <div className="mx-auto max-w-[92rem]">
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_.75fr] lg:items-end">
-              <div>
-                <p className="text-sm font-bold uppercase tracking-[0.25em] text-black/40">
-                  Our latest project
-                </p>
+<section
+  id="work"
+  className="relative z-10 bg-[#f4f0e8] px-4 py-24 text-black md:px-8 md:py-32"
+>
+  <div className="mx-auto max-w-[92rem]">
+    <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_.75fr] lg:items-end">
+      <div>
+        <p className="text-sm font-bold uppercase tracking-[0.25em] text-black/40">
+          Our latest project
+        </p>
 
-                <h2 className="mt-5 text-7xl font-light leading-[0.78] tracking-[-0.085em] md:text-[9rem]">
-                  Project that sells.
-                </h2>
-              </div>
+        <h2 className="mt-5 text-7xl font-light leading-[0.78] tracking-[-0.085em] md:text-[9rem]">
+          Website mockup that sells.
+        </h2>
+      </div>
 
-              <p className="max-w-xl text-xl font-light leading-8 text-black/55">
-                Lihat bagaimana website vendor bisa tampil seperti brand serius:
-                visual besar, informasi jelas, dan CTA langsung ke WhatsApp.
-              </p>
-            </div>
-
-            <div className="mt-16">
-              <div className="group relative aspect-[16/9] overflow-hidden rounded-[2rem] border border-black/10 bg-black shadow-2xl md:rounded-[3rem]">
-                {projectSlides.map((slide, index) => (
-                  <div
-                    key={slide.title}
-                    className={cn(
-                      "absolute inset-0 transition-all duration-1000 ease-in-out",
-                      activeProject === index
-                        ? "scale-100 opacity-100"
-                        : "scale-105 opacity-0"
-                    )}
-                  >
-                    <img
-                      src={slide.image}
-                      alt={slide.title}
-                      className="h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/35 to-black/95" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/20" />
-                  </div>
-                ))}
-
-                <div className="absolute left-5 top-5 z-20 flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-4 py-2 backdrop-blur-xl md:left-8 md:top-8">
-                  <span className="h-2 w-2 animate-pulse rounded-full bg-[#ff2f1f]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/70">
-                    Live Preview
-                  </span>
-                </div>
-
-                <div className="absolute right-0 top-0 z-20 hidden h-full w-[48%] items-center p-10 md:flex xl:p-14">
-                  <div className="max-w-xl">
-                    <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#ff2f1f]">
-                      Latest Project / {String(activeProject + 1).padStart(2, "0")}
-                    </p>
-
-                    <h3 className="mt-5 text-5xl font-light leading-[0.85] tracking-[-0.07em] text-white lg:text-7xl xl:text-8xl">
-                      {projectSlides[activeProject].title}
-                    </h3>
-
-                    <p className="mt-6 text-base font-light leading-7 text-white/55 lg:text-lg">
-                      {projectSlides[activeProject].desc}
-                    </p>
-
-                    <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                      <a
-                        href="#pricing"
-                        className="rounded-full bg-[#ff2f1f] px-7 py-4 text-center text-sm font-bold uppercase text-white transition hover:bg-white hover:text-black"
-                      >
-                        Buat seperti ini
-                      </a>
-
-                      <a
-                        href={whatsappService}
-                        target="_blank"
-                        className="rounded-full border border-white/15 bg-white/[0.04] px-7 py-4 text-center text-sm font-bold uppercase text-white transition hover:bg-white hover:text-black"
-                      >
-                        Konsultasi
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="absolute bottom-5 left-5 z-20 hidden items-center gap-3 md:bottom-8 md:left-8 md:flex">
-                  {projectSlides.map((slide, index) => (
-                    <button
-                      key={slide.title}
-                      type="button"
-                      onClick={() => setActiveProject(index)}
-                      className={cn(
-                        "h-2.5 rounded-full transition-all duration-300",
-                        activeProject === index
-                          ? "w-12 bg-[#ff2f1f]"
-                          : "w-2.5 bg-white/35 hover:bg-white"
-                      )}
-                      aria-label={`Show ${slide.title}`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* VIDEO OPTIMIZATION */}
-        <section className="relative z-10 overflow-hidden bg-[#050505] px-4 py-24 text-white md:px-8 md:py-32">
-  <div className="pointer-events-none absolute right-0 top-0 h-[38rem] w-[38rem] rounded-full bg-[#ff2f1f]/15 blur-[120px]" />
-
-  <div className="relative mx-auto grid max-w-[92rem] grid-cols-1 gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-    <div>
-      <p className="text-sm font-bold uppercase tracking-[0.25em] text-[#ff2f1f]">
-        Video website optimization
-      </p>
-
-      <h2 className="mt-5 text-6xl font-light leading-[0.92] tracking-[-0.08em] md:text-[8rem]">
-        Video di website kamu, tapi tetap ringan.
-      </h2>
-
-      <p className="mt-8 max-w-xl text-xl font-light leading-9 text-white/45">
-        Mau pakai video hero, portfolio cinematic, atau preview event? Kami
-        bantu optimasi server dan asset supaya konten tetap terlihat mahal
-        tanpa bikin website terasa berat.
+      <p className="max-w-xl text-xl font-light leading-8 text-black/55">
+        Kami tidak cuma bikin halaman online. Kami bantu vendor tampil seperti
+        brand serius: ada domain, layanan jelas, portfolio, paket harga, FAQ,
+        dan CTA WhatsApp yang siap dikirim ke calon client.
       </p>
     </div>
 
-    <div className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-5 backdrop-blur-2xl transition hover:-translate-y-2 hover:border-[#ff2f1f]/40 hover:shadow-[0_40px_100px_rgba(255,47,31,.12)] md:p-6">
-      <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-black">
-        <div className="relative aspect-video overflow-hidden">
-          <video
-            className="h-full w-full object-cover"
-            src="/videos/optimization.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-          />
-
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/35" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-[#ff2f1f]/20" />
-
-          <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-black/40 px-4 py-2 backdrop-blur-xl">
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/70">
-              Optimized Video Preview
-            </p>
+    <div className="mt-16">
+      <div className="group relative overflow-hidden rounded-[2rem] border border-black/10 bg-black p-3 shadow-2xl md:rounded-[3rem] md:p-5">
+        {/* Browser top bar */}
+        <div className="flex items-center gap-3 rounded-t-[1.5rem] border-b border-white/10 bg-[#101010] px-4 py-4 md:rounded-t-[2.2rem] md:px-6">
+          <div className="flex gap-2">
+            <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
+            <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
+            <span className="h-3 w-3 rounded-full bg-[#28c840]" />
           </div>
 
-          <div className="absolute bottom-5 left-5 right-5">
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#ff2f1f]">
-              Smooth Playback
+          <div className="ml-2 flex min-w-0 flex-1 items-center rounded-full border border-white/10 bg-white/[0.06] px-4 py-2">
+            <span className="truncate text-xs font-medium text-white/45 md:text-sm">
+              https://{projectSlides[activeProject].url}
+            </span>
+          </div>
+
+          <div className="hidden rounded-full border border-white/10 px-4 py-2 md:block">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/35">
+              Live Preview
             </p>
-            <h3 className="mt-2 text-4xl font-light leading-none tracking-[-0.06em] text-white">
-              Video tetap jalan,
-              <span className="block italic text-white/70">
-                website tetap ringan.
-              </span>
-            </h3>
           </div>
         </div>
 
-        <div className="border-t border-white/10 p-6">
-          <div className="grid grid-cols-3 gap-3">
-            {[
-              ["MP4", "compressed"],
-              ["Lazy", "loading"],
-              ["700", "perak / hari"],
-            ].map(([value, label]) => (
-              <div
-                key={value}
-                className="rounded-2xl border border-white/10 bg-white/[0.05] p-4"
-              >
-                <p className="text-3xl font-light tracking-[-0.06em]">
-                  {value}
-                </p>
-                <p className="mt-1 text-xs font-light text-white/35">
-                  {label}
-                </p>
+        {/* Mockup area */}
+        <div className="relative aspect-[16/10] overflow-hidden rounded-b-[1.5rem] bg-[#080808] md:aspect-[16/8.5] md:rounded-b-[2.2rem]">
+          {projectSlides.map((slide, index) => (
+          <div
+            key={slide.title}
+            className={cn(
+              "absolute inset-0 bg-white transition-all duration-1000 ease-in-out",
+              activeProject === index
+                ? "scale-100 opacity-100"
+                : "pointer-events-none scale-105 opacity-0"
+            )}
+          >
+            <iframe
+              src={slide.previewUrl}
+              title={slide.title}
+              className="pointer-events-none h-full w-full border-0"
+              loading={index === 0 ? "eager" : "lazy"}
+            />
+
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/0 via-transparent to-black/75" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/0" />
+          </div>
+        ))}
+
+          {/* Top badges */}
+          <div className="absolute left-5 top-5 z-20 flex flex-wrap items-center gap-2 md:left-8 md:top-8">
+            <div className="flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-4 py-2 backdrop-blur-xl">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-[#ff2f1f]" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/70">
+                Web Project
+              </span>
+            </div>
+
+            <div className="rounded-full border border-white/15 bg-black/35 px-4 py-2 backdrop-blur-xl">
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/55">
+                {projectSlides[activeProject].category}
+              </span>
+            </div>
+          </div>
+
+          {/* Desktop info panel */}
+          <div className="absolute right-0 top-0 z-20 hidden h-full w-[48%] items-center p-10 md:flex xl:p-14">
+            <div className="max-w-xl">
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#ff2f1f]">
+                Latest Project / {String(activeProject + 1).padStart(2, "0")}
+              </p>
+
+              <h3 className="mt-5 text-5xl font-light leading-[0.85] tracking-[-0.07em] text-white lg:text-7xl xl:text-8xl">
+                {projectSlides[activeProject].title}
+              </h3>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                <span className="rounded-full border border-white/15 bg-white/[0.06] px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white/50">
+                  {projectSlides[activeProject].location}
+                </span>
+                <span className="rounded-full border border-white/15 bg-white/[0.06] px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white/50">
+                  {projectSlides[activeProject].url}
+                </span>
               </div>
+
+              <p className="mt-6 text-base font-light leading-7 text-white/55 lg:text-lg">
+                {projectSlides[activeProject].desc}
+              </p>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="#pricing"
+                  className="rounded-full bg-[#ff2f1f] px-7 py-4 text-center text-sm font-bold uppercase text-white transition hover:bg-white hover:text-black"
+                >
+                  Buat seperti ini
+                </a>
+
+                <a
+                  href={whatsappService}
+                  target="_blank"
+                  className="rounded-full border border-white/15 bg-white/[0.04] px-7 py-4 text-center text-sm font-bold uppercase text-white transition hover:bg-white hover:text-black"
+                >
+                  Konsultasi
+                </a>
+
+                <a
+                  href={projectSlides[activeProject].previewUrl}
+                  target="_blank"
+                  className="rounded-full border border-white/15 bg-white/[0.04] px-7 py-4 text-center text-sm font-bold uppercase text-white transition hover:bg-white hover:text-black"
+                >
+                  Open Website
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile info panel */}
+          <div className="absolute bottom-0 left-0 right-0 z-20 p-5 md:hidden">
+            <div className="rounded-[1.5rem] border border-white/10 bg-black/55 p-5 backdrop-blur-2xl">
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#ff2f1f]">
+                Latest Project / {String(activeProject + 1).padStart(2, "0")}
+              </p>
+
+              <h3 className="mt-3 text-4xl font-light leading-[0.9] tracking-[-0.07em] text-white">
+                {projectSlides[activeProject].title}
+              </h3>
+
+              <p className="mt-3 text-sm font-light leading-6 text-white/55">
+                {projectSlides[activeProject].desc}
+              </p>
+            </div>
+          </div>
+
+          {/* Dots */}
+          <div className="absolute bottom-5 left-5 z-30 hidden items-center gap-3 md:bottom-8 md:left-8 md:flex">
+            {projectSlides.map((slide, index) => (
+              <button
+                key={slide.title}
+                type="button"
+                onClick={() => setActiveProject(index)}
+                className={cn(
+                  "h-2.5 rounded-full transition-all duration-300",
+                  activeProject === index
+                    ? "w-12 bg-[#ff2f1f]"
+                    : "w-2.5 bg-white/35 hover:bg-white"
+                )}
+                aria-label={`Show ${slide.title}`}
+              />
             ))}
           </div>
-
-          <p className="mt-6 text-sm font-light leading-7 text-white/45">
-            Biaya server, domain, SSL, dan maintenance dasar dibuat ringan:
-            cukup sekitar 700 perak per hari untuk menjaga website tetap hidup.
-          </p>
         </div>
       </div>
+
+      {/* Project list under mockup */}
+      <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-4">
+        {projectSlides.map((slide, index) => (
+          <button
+            key={slide.title}
+            type="button"
+            onClick={() => setActiveProject(index)}
+            className={cn(
+              "rounded-[1.25rem] border p-4 text-left transition",
+              activeProject === index
+                ? "border-black bg-black text-white"
+                : "border-black/10 bg-white/60 text-black hover:bg-white"
+            )}
+          >
+            <p
+              className={cn(
+                "text-xs font-bold uppercase tracking-[0.2em]",
+                activeProject === index ? "text-[#ff2f1f]" : "text-black/35"
+              )}
+            >
+              {slide.category}
+            </p>
+            <h4 className="mt-3 text-lg font-bold tracking-[-0.04em]">
+              {slide.title}
+            </h4>
+            <p
+              className={cn(
+                "mt-2 text-sm font-light",
+                activeProject === index ? "text-white/45" : "text-black/45"
+              )}
+            >
+              {slide.location}
+            </p>
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+      {/* SERVER SPEED / FULLSCREEN VIDEO */}
+<section className="relative z-10 min-h-screen overflow-hidden bg-black text-white">
+  <video
+    className="absolute inset-0 h-full w-full object-cover"
+    src="/videos/optimization.mp4"
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="metadata"
+  />
+
+  <div className="absolute inset-0 bg-black/45" />
+  <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/35 to-black/30" />
+  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-black/45" />
+
+  <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:72px_72px]" />
+
+  <div className="relative z-10 mx-auto flex min-h-screen max-w-[92rem] flex-col justify-between px-4 py-24 md:px-8 md:py-28">
+    <div>
+      <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-black/35 px-5 py-3 backdrop-blur-xl">
+        <span className="h-2 w-2 animate-pulse rounded-full bg-[#25D366]" />
+        <p className="text-xs font-bold uppercase tracking-[0.24em] text-white/65">
+          Server speed showcase
+        </p>
+      </div>
+
+      <h2 className="mt-8 max-w-6xl text-[16vw] font-light leading-[0.82] tracking-[-0.095em] text-white md:text-[10vw] lg:text-[9rem]">
+        Website cepat.
+        <span className="block italic text-white/70">
+          Video tetap jalan.
+        </span>
+      </h2>
+
+      <p className="mt-8 max-w-2xl text-lg font-light leading-8 text-white/60 md:text-2xl md:leading-10">
+        Kami optimasi video, asset, domain, SSL, dan server supaya website
+        tetap terasa ringan walaupun tampilannya premium. Cocok untuk vendor,
+        UMKM, portfolio, landing page, dan website bisnis yang butuh tampil
+        serius di internet.
+      </p>
+
+      <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+        <a
+          href="#server"
+          className="rounded-full bg-[#ff2f1f] px-8 py-4 text-center text-sm font-bold uppercase text-white transition hover:bg-white hover:text-black"
+        >
+          Lihat server plan
+        </a>
+
+        <a
+          href={whatsappService}
+          target="_blank"
+          className="rounded-full border border-white/15 bg-white/[0.06] px-8 py-4 text-center text-sm font-bold uppercase text-white backdrop-blur-xl transition hover:bg-white hover:text-black"
+        >
+          Konsultasi speed
+        </a>
+      </div>
+    </div>
+
+    <div className="mt-16 grid grid-cols-2 gap-3 md:grid-cols-4">
+      {[
+        ["10GB", "storage mulai 10rb"],
+        ["Unlimited", "traffic bulanan"],
+        ["SSL", "aktif & aman"],
+        ["Fast", "server ringan"],
+      ].map(([value, label]) => (
+        <div
+          key={value}
+          className="rounded-[1.5rem] border border-white/10 bg-black/35 p-5 backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/[0.08] md:p-7"
+        >
+          <p className="text-4xl font-light leading-none tracking-[-0.07em] md:text-6xl">
+            {value}
+          </p>
+          <p className="mt-3 text-sm font-light leading-5 text-white/45">
+            {label}
+          </p>
+        </div>
+      ))}
     </div>
   </div>
 </section>
@@ -943,6 +1181,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
 
         {/* TEMPLATES */}
         <section id="templates" className="relative z-10 bg-[#050505] px-4 py-24 md:px-8 md:py-32">
@@ -1383,6 +1622,134 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* NOT ONLY EVENT VENDOR */}
+<section className="relative z-10 overflow-hidden bg-[#f4f0e8] px-4 py-24 text-black md:px-8 md:py-32">
+  <div className="pointer-events-none absolute left-[-12rem] top-10 h-[38rem] w-[38rem] rounded-full bg-[#ff2f1f]/10 blur-[120px]" />
+
+  <div className="relative mx-auto max-w-[92rem]">
+    <div className="grid grid-cols-1 gap-12 lg:grid-cols-[.95fr_1.05fr] lg:items-end">
+      <div>
+        <p className="text-sm font-bold uppercase tracking-[0.28em] text-black/35">
+          Cuma bisa vendor event?
+        </p>
+
+        <h2 className="mt-5 max-w-5xl text-6xl font-light leading-[0.88] tracking-[-0.085em] md:text-[8.5rem]">
+          Tenang, UMKM juga bisa digital.
+        </h2>
+      </div>
+
+      <div>
+        <p className="max-w-2xl text-2xl font-light leading-[1.25] tracking-[-0.04em] text-black/65 md:text-4xl">
+          SolusiVendor memang lahir dari dunia vendor event, tapi sistem kami
+          bisa dipakai untuk banyak jenis usaha.
+        </p>
+
+        <p className="mt-6 max-w-xl text-base font-light leading-8 text-black/50 md:text-lg">
+          Mau landing page, company profile, sales page, katalog layanan,
+          admin panel, sampai custom web sederhana? Kami bisa bantu usaha kamu
+          terlihat lebih rapi, dipercaya, dan siap menerima customer.
+        </p>
+      </div>
+    </div>
+
+    <div className="mt-14 flex flex-wrap gap-3">
+      {businessTypes.map((item) => (
+        <span
+          key={item}
+          className="rounded-full border border-black/10 bg-white/65 px-5 py-3 text-sm font-bold uppercase tracking-[0.12em] text-black/55 backdrop-blur-xl"
+        >
+          {item}
+        </span>
+      ))}
+    </div>
+
+    <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
+      {customWebServices.map((item, index) => (
+        <div
+          key={item.title}
+          className="rounded-[2rem] border border-black/10 bg-white/70 p-7 backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white hover:shadow-2xl"
+        >
+          <div className="flex items-center justify-between">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-black/35">
+              Bisa custom
+            </p>
+            <p className="text-sm font-black text-[#ff2f1f]">
+              {String(index + 1).padStart(2, "0")}
+            </p>
+          </div>
+
+          <h3 className="mt-14 text-3xl font-semibold leading-none tracking-[-0.055em]">
+            {item.title}
+          </h3>
+
+          <p className="mt-4 text-sm font-light leading-7 text-black/55">
+            {item.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* WE HANDLE EVERYTHING */}
+<section className="relative z-10 overflow-hidden bg-[#050505] px-4 py-24 text-white md:px-8 md:py-32">
+  <div className="pointer-events-none absolute right-[-8rem] top-0 h-[38rem] w-[38rem] rounded-full bg-[#ff2f1f]/18 blur-[130px]" />
+
+  <div className="relative mx-auto max-w-[92rem]">
+    <div className="grid grid-cols-1 gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+      <div>
+        <p className="text-sm font-bold uppercase tracking-[0.28em] text-[#ff2f1f]">
+          Pakai jasa pembuatan website
+        </p>
+
+        <h2 className="mt-5 max-w-5xl text-6xl font-light leading-[0.88] tracking-[-0.085em] md:text-[8.5rem]">
+          Kamu fokus bisnis, teknis kami urus.
+        </h2>
+
+        <p className="mt-8 max-w-2xl text-xl font-light leading-9 text-white/45">
+          Dari konsep halaman sampai website online, kami bantu susun agar
+          bisnismu punya link resmi yang enak dilihat, mudah dipahami, dan
+          siap dibagikan ke calon customer.
+        </p>
+      </div>
+
+      <div className="rounded-[2.5rem] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-2xl md:p-8">
+        <div className="rounded-[2rem] bg-white p-6 text-black md:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-black/35">
+            Included setup
+          </p>
+
+          <h3 className="mt-5 max-w-2xl text-4xl font-light leading-[0.95] tracking-[-0.06em] md:text-6xl">
+            Website bukan cuma tampilan. Ada sistem teknis di belakangnya.
+          </h3>
+
+          <div className="mt-8 grid grid-cols-2 gap-3">
+            {handledByUs.map((item) => (
+              <div
+                key={item}
+                className="rounded-2xl border border-black/10 bg-[#f4f0e8] px-4 py-4 text-sm font-bold text-black/65"
+              >
+                <span className="mr-2 text-[#ff2f1f]">/</span>
+                {item}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 rounded-[1.5rem] bg-black p-6 text-white">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#ff2f1f]">
+              Authentic design
+            </p>
+            <p className="mt-3 text-3xl font-light leading-none tracking-[-0.06em]">
+              Bukan asal pakai template yang sama untuk semua bisnis.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
         {/* PRICING */}
         <section
           id="pricing"
@@ -1400,8 +1767,9 @@ export default function HomePage() {
               </div>
 
               <p className="max-w-xl text-xl font-light leading-8 text-black/55">
-                Paket terima beres untuk vendor yang ingin website langsung online
-                tanpa ribet teknis.
+                Paket terima beres untuk vendor, UMKM, dan bisnis yang ingin website langsung
+                online tanpa ribet teknis. Biaya tahunan mulai sekitar 700 perak per hari agar
+                website tetap hidup di internet.
               </p>
             </div>
 
@@ -1502,6 +1870,218 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* SERVER PRICING */}
+<section
+  id="server"
+  className="relative z-10 overflow-hidden bg-[#050505] px-4 py-24 text-white md:px-8 md:py-32"
+>
+  <div className="pointer-events-none absolute left-1/2 top-0 h-[38rem] w-[38rem] -translate-x-1/2 rounded-full bg-[#ff2f1f]/15 blur-[130px]" />
+
+  <div className="relative mx-auto max-w-[92rem]">
+    <div className="grid grid-cols-1 gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
+      <div>
+        <p className="text-sm font-bold uppercase tracking-[0.28em] text-[#ff2f1f]">
+          Biaya sewa server
+        </p>
+
+        <h2 className="mt-5 max-w-5xl text-6xl font-light leading-[0.88] tracking-[-0.085em] md:text-[8.5rem]">
+          Server murah, bukan murahan.
+        </h2>
+      </div>
+
+      <p className="max-w-2xl text-xl font-light leading-8 text-white/45">
+        Stop berpikir website harus mahal. Mulai sekitar 700 perak per hari,
+        website kamu bisa online dengan hosting, SSL, unlimited traffic, dan
+        storage yang cukup untuk kebutuhan bisnis.
+      </p>
+    </div>
+
+    <div className="mt-16 grid grid-cols-1 gap-5 lg:grid-cols-3">
+      {serverPlans.map((plan, index) => (
+        <div
+          key={plan.name}
+          className={cn(
+            "rounded-[2rem] border p-7 backdrop-blur-xl transition hover:-translate-y-1 md:p-9",
+            index === 0
+              ? "border-[#ff2f1f]/40 bg-[#ff2f1f] text-black shadow-[0_40px_100px_rgba(255,47,31,.18)]"
+              : "border-white/10 bg-white/[0.045] text-white hover:border-[#ff2f1f]/35"
+          )}
+        >
+          <p
+            className={cn(
+              "text-xs font-bold uppercase tracking-[0.25em]",
+              index === 0 ? "text-black/55" : "text-[#ff2f1f]"
+            )}
+          >
+            Server Plan
+          </p>
+
+          <div className="mt-6 flex items-start justify-between gap-5">
+            <h3 className="text-4xl font-light tracking-[-0.06em]">
+              {plan.name}
+            </h3>
+
+            <div
+              className={cn(
+                "rounded-full border px-4 py-2 text-right",
+                index === 0
+                  ? "border-black/10 bg-black/[0.06]"
+                  : "border-white/10 bg-white/[0.04]"
+              )}
+            >
+              <p
+                className={cn(
+                  "text-[10px] font-bold uppercase tracking-[0.18em]",
+                  index === 0 ? "text-black/45" : "text-white/35"
+                )}
+              >
+                Compare
+              </p>
+              <p className="mt-1 text-xs font-bold">
+                {plan.saving}
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 flex items-end gap-2">
+            <p className="text-7xl font-light leading-none tracking-[-0.08em]">
+              {plan.price}
+            </p>
+            {plan.price !== "Custom" && (
+              <p
+                className={cn(
+                  "pb-2 text-xl font-light",
+                  index === 0 ? "text-black/45" : "text-white/35"
+                )}
+              >
+                / bulan
+              </p>
+            )}
+          </div>
+
+          <p
+            className={cn(
+              "mt-2 text-sm font-light line-through",
+              index === 0 ? "text-black/35" : "text-white/25"
+            )}
+          >
+            Provider lain sekitar {plan.normalCompare} / bulan
+          </p>
+
+          <div className="mt-7 grid grid-cols-2 gap-3">
+            {[
+              ["Storage", plan.storage],
+              ["Traffic", plan.traffic],
+              ["Domain", plan.domain],
+              ["SSL", plan.ssl],
+              ["Email", plan.email],
+              ["Speed", plan.speed],
+            ].map(([label, value]) => (
+              <div
+                key={label}
+                className={cn(
+                  "rounded-[1.25rem] border p-4",
+                  index === 0
+                    ? "border-black/10 bg-black/[0.06]"
+                    : "border-white/10 bg-white/[0.04]"
+                )}
+              >
+                <p
+                  className={cn(
+                    "text-[10px] font-bold uppercase tracking-[0.2em]",
+                    index === 0 ? "text-black/40" : "text-white/30"
+                  )}
+                >
+                  {label}
+                </p>
+                <p className="mt-2 text-xl font-light tracking-[-0.04em]">
+                  {value}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <p
+            className={cn(
+              "mt-6 text-sm font-light leading-7",
+              index === 0 ? "text-black/65" : "text-white/45"
+            )}
+          >
+            {plan.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <div className="mt-8 rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl md:p-8">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#ff2f1f]">
+            Semua paket server
+          </p>
+          <h3 className="mt-4 text-4xl font-light leading-none tracking-[-0.06em] md:text-6xl">
+            Traffic unlimited. SSL included. Speed sama.
+          </h3>
+          <p className="mt-5 max-w-xl text-sm font-light leading-7 text-white/45">
+            Kami fokus ke kebutuhan website bisnis: cepat diakses, storage cukup,
+            domain bisa custom, dan biaya bulanan ringan. Fitur yang tidak relevan
+            untuk website sederhana tidak kami jadikan gimmick.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
+          {serverBenefits.map((item) => (
+            <div
+              key={item}
+              className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-sm font-light text-white/60"
+            >
+              <span className="mr-2 text-[#ff2f1f]">/</span>
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-8 grid grid-cols-1 gap-5 lg:grid-cols-[1fr_.75fr]">
+        <div className="rounded-[1.5rem] bg-white p-6 text-black md:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-black/35">
+            Dibanding provider lain
+          </p>
+          <p className="mt-3 max-w-4xl text-3xl font-light leading-[1.05] tracking-[-0.05em] md:text-5xl">
+            Mulai 10 ribu sudah dapat 10GB storage, unlimited traffic, SSL, dan
+            speed yang sama untuk semua paket.
+          </p>
+          <p className="mt-5 max-w-2xl text-sm font-light leading-7 text-black/55">
+            Referensi provider lain bisa mulai sekitar 25rb, 60rb, sampai 160rb
+            per bulan tergantung paket. Di SolusiVendor, kami bikin biaya lebih
+            ringan supaya bisnis kecil bisa online dulu tanpa takut tagihan server.
+          </p>
+        </div>
+
+        <div className="rounded-[1.5rem] border border-white/10 bg-black p-6 text-white md:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#ff2f1f]">
+            Butuh lebih besar?
+          </p>
+          <h3 className="mt-4 text-4xl font-light leading-none tracking-[-0.06em]">
+            Storage bisa custom.
+          </h3>
+          <p className="mt-5 text-sm font-light leading-7 text-white/45">
+            Untuk foto banyak, video, katalog besar, file download, atau sistem
+            custom, kapasitas bisa dinaikkan sesuai kebutuhan.
+          </p>
+          <a
+            href={whatsappService}
+            target="_blank"
+            className="mt-7 inline-flex rounded-full bg-[#ff2f1f] px-6 py-3 text-sm font-bold uppercase text-white transition hover:bg-white hover:text-black"
+          >
+            Tanya custom server
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
         {/* FAQ */}
         <section id="faq" className="relative z-10 bg-[#f4f0e8] px-4 py-24 text-black md:px-8 md:py-32">
