@@ -10,11 +10,12 @@ const whatsappService =
   "https://wa.me/62895345902896?text=Halo%20SolusiVendor%2C%20saya%20mau%20konsultasi%20buat%20website%20vendor%20terima%20beres.";
 
 const navItems = [
-  { label: "Work", href: "#work" },
-  { label: "Template", href: "#templates" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Server", href: "#server" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Home", href: "/" },
+  { label: "Templates", href: "/templates" },
+  { label: "VPS Service", href: "/vps-service" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Login", href: "/login" },
+  { label: "Dashboard", href: "/dashboard" },
 ];
 
 const vendors = [
@@ -42,6 +43,7 @@ const projectSlides = [
     location: "Gresik",
     url: "aristaproduction.com",
     previewUrl: "https://aristaproduction.com",
+    alt: "Preview website ARISTA Production Gresik untuk vendor sound system, LED videotron, lighting, dan event production",
     desc: "Website company profile untuk vendor sound system, LED videotron, lighting, custom audio cable, dan event production. Dibuat dengan tampilan premium, CTA WhatsApp, portfolio, layanan, dan struktur landing page yang siap jualan.",
   },
   // {
@@ -50,6 +52,7 @@ const projectSlides = [
   //   location: "Surabaya",
   //   url: "colorizevisual.com",
   //   previewUrl: "https://colorizevisual.com",
+  //   alt: "Preview website Colorize Visual Surabaya untuk jasa live streaming dan multimedia event",
   //   desc: "Landing page untuk vendor live streaming dengan layanan multi-camera, Zoom, YouTube, Instagram, TikTok, portfolio event, pricelist, FAQ, dan CTA WhatsApp.",
   // },
   // {
@@ -58,6 +61,7 @@ const projectSlides = [
   //   location: "Surabaya",
   //   url: "wedding.namavendor.com",
   //   previewUrl: "https://solusivendor.com/templates/template2/",
+  //   alt: "Preview template website wedding organizer untuk portfolio dekorasi, paket wedding, dan inquiry client",
   //   desc: "Website elegan untuk menampilkan paket wedding, gallery dekorasi, workflow konsultasi, testimoni, dan tombol inquiry agar calon client lebih mudah percaya.",
   // },
   // {
@@ -66,6 +70,7 @@ const projectSlides = [
   //   location: "East Java",
   //   url: "sound.namavendor.com",
   //   previewUrl: "https://solusivendor.com/templates/template1/",
+  //   alt: "Preview template website sound system untuk pricelist, katalog paket, portfolio event, dan CTA WhatsApp",
   //   desc: "Halaman vendor sound system dengan katalog paket, portfolio event, detail layanan, pricelist, dan CTA WhatsApp yang jelas.",
   // },
 ];
@@ -99,7 +104,7 @@ const offers = [
     title: "Beli Template",
     price: "Rp99rb",
     desc: "Untuk vendor yang mau mulai cepat, murah, dan siap edit sendiri.",
-    href: "/buytemplate",
+    href: "/templates",
     cta: "Browse Templates",
     items: [
       "100+ pilihan template vendor",
@@ -502,20 +507,20 @@ export default function HomePage() {
           )}
         >
           <div className="mx-auto flex max-w-[92rem] items-center justify-between px-4 py-5 md:px-8">
-            <a href="#" className="text-2xl font-light tracking-[-0.06em] md:text-3xl">
+            <Link href="/" className="text-2xl font-light tracking-[-0.06em] md:text-3xl">
               SOLUSI<span className="font-bold text-[#ff2f1f]">VENDOR</span>
-            </a>
+            </Link>
 
             <div className="flex items-center justify-end gap-3">
               <div className="hidden items-center gap-8 lg:flex">
                 {navItems.map((item) => (
-                  <a
+                  <Link
                     key={item.href}
                     href={item.href}
                     className="text-sm font-bold uppercase tracking-[-0.02em] text-white/45 transition hover:text-white"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
 
@@ -577,19 +582,19 @@ export default function HomePage() {
 
               <div className="mt-14 divide-y divide-white/10">
                 {navItems.map((item) => (
-                  <a
+                  <Link
                     key={item.href}
                     href={item.href}
                     onClick={() => setMenuOpen(false)}
                     className="group flex items-center justify-between py-7"
                   >
-                    <span className="text-6xl font-light uppercase tracking-[-0.07em] text-white transition group-hover:text-[#ff2f1f] md:text-8xl">
+                    <span className="text-5xl font-light uppercase tracking-[-0.07em] text-white transition group-hover:text-[#ff2f1f] md:text-7xl">
                       {item.label}
                     </span>
                     <span className="text-2xl text-white/30 transition group-hover:translate-x-2 group-hover:text-[#ff2f1f]">
                       →
                     </span>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -624,7 +629,7 @@ export default function HomePage() {
               </p>
 
               <h1 className="mt-6 max-w-7xl text-[22vw] font-light leading-[0.78] tracking-[-0.095em] text-white sm:text-[18vw] md:text-[14vw] lg:text-[11rem]">
-                Website premium untuk vendor event.
+                Website premium untuk vendor, UMKM, dan bisnis lokal.
               </h1>
             </div>
 
@@ -644,7 +649,7 @@ export default function HomePage() {
                   </a>
 
                   <Link
-                    href="/buytemplate"
+                    href="/templates"
                     className="rounded-full border border-white/15 bg-white/[0.04] px-7 py-4 text-center text-sm font-bold uppercase text-white transition hover:bg-white hover:text-black"
                   >
                     Buy template 99rb
@@ -874,7 +879,7 @@ export default function HomePage() {
           >
             <iframe
               src={slide.previewUrl}
-              title={slide.title}
+              title={slide.alt ?? slide.title}
               className="pointer-events-none h-full w-full border-0"
               loading={index === 0 ? "eager" : "lazy"}
             />
@@ -1214,7 +1219,7 @@ export default function HomePage() {
               {templatePreview.map((item) => (
                 <Link
                   key={item.no}
-                  href="/buytemplate"
+                  href="/templates"
                   className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.045] p-4 backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-[#ff2f1f]/50 hover:bg-white/[0.07]"
                 >
                   <div className="relative h-72 overflow-hidden rounded-[1.4rem] bg-black p-5">
@@ -1263,7 +1268,7 @@ export default function HomePage() {
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/buytemplate"
+                href="/templates"
                 className="rounded-full bg-[#ff2f1f] px-8 py-4 text-center text-sm font-bold uppercase text-white transition hover:bg-white hover:text-black"
               >
                 Browse 100+ templates
@@ -2174,15 +2179,18 @@ export default function HomePage() {
                 Product
               </p>
               <div className="space-y-3 text-sm font-light text-white/55">
-                <Link href="/buytemplate" className="block hover:text-white">
-                  Buy Template
+                <Link href="/templates" className="block hover:text-white">
+                  Template Marketplace
                 </Link>
-                <a href="#pricing" className="block hover:text-white">
-                  Terima Beres
-                </a>
-                <a href="#templates" className="block hover:text-white">
-                  Template Library
-                </a>
+                <Link href="/vps-service" className="block hover:text-white">
+                  VPS Service
+                </Link>
+                <Link href="/pricing" className="block hover:text-white">
+                  Pricing
+                </Link>
+                <Link href="/login" className="block hover:text-white">
+                  Login
+                </Link>
               </div>
             </div>
 
