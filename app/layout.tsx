@@ -7,23 +7,23 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default:
-      "SolusiVendor | Jasa Website Vendor, UMKM, Landing Page & Template Website",
+      "SolusiVendor | Tech Solution untuk Website, Template, Hosting & Cloud",
     template: "%s | SolusiVendor",
   },
   description:
-    "SolusiVendor membantu vendor event, UMKM, dan bisnis lokal punya website profesional mulai dari template 99rb, terima beres 149rb, hosting murah, domain, SSL, SEO basic, dan CTA WhatsApp.",
+    "SolusiVendor membantu brand, vendor, UMKM, dan bisnis kecil go digital lewat pembuatan website, template website, hosting, managed cloud, VPS hemat, dan custom web system. Storage tersedia melalui DriveOne, product by SolusiVendor.",
   keywords: [
-    "jasa website vendor",
     "jasa website UMKM",
-    "jasa website Surabaya",
-    "jasa landing page",
+    "jasa website vendor",
     "template website murah",
-    "website vendor event",
-    "website sound system",
-    "website wedding organizer",
-    "website live streaming",
     "hosting murah UMKM",
-    "SolusiVendor",
+    "managed container hosting",
+    "VPS hemat Indonesia",
+    "jasa landing page",
+    "custom web UMKM",
+    "SolusiVendor Cloud",
+    "DriveOne storage",
+    "file hosting Indonesia",
   ],
   authors: [{ name: "SolusiVendor by vjmrtim" }],
   creator: "SolusiVendor",
@@ -37,24 +37,24 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "SolusiVendor",
     title:
-      "SolusiVendor | Jasa Website Vendor, UMKM, Landing Page & Template Website",
+      "SolusiVendor | Tech Solution untuk Website, Template, Hosting & Cloud",
     description:
-      "Website profesional untuk vendor event, UMKM, dan bisnis lokal. Template 99rb, terima beres 149rb, hosting murah, domain, SSL, SEO basic, dan CTA WhatsApp.",
+      "Tech solution untuk brand, vendor, UMKM, dan bisnis kecil yang ingin go digital lewat website, templates, hosting, managed cloud, VPS hemat, dan custom system.",
     images: [
       {
         url: "/og-solusivendor.jpg",
         width: 1200,
         height: 630,
-        alt: "SolusiVendor - Jasa Website Vendor dan UMKM",
+        alt: "SolusiVendor - Tech Solution untuk Brand yang Ingin Go Digital",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "SolusiVendor | Jasa Website Vendor, UMKM, Landing Page & Template Website",
+      "SolusiVendor | Tech Solution untuk Website, Template, Hosting & Cloud",
     description:
-      "Template website 99rb, terima beres 149rb, hosting murah, domain, SSL, SEO basic, dan CTA WhatsApp untuk vendor dan UMKM.",
+      "Dari website pertama sampai cloud pertama untuk brand, vendor, UMKM, dan bisnis kecil.",
     images: ["/og-solusivendor.jpg"],
   },
   robots: {
@@ -77,36 +77,82 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "Organization",
     name: "SolusiVendor",
     url: siteUrl,
     logo: `${siteUrl}/solusivendorlogo.png`,
     image: `${siteUrl}/og-solusivendor.jpg`,
     description:
-      "Jasa pembuatan website untuk vendor event, UMKM, landing page, template website, hosting murah, domain, SSL, dan SEO basic.",
+      "Tech solution untuk brand yang ingin go digital melalui website, templates, hosting, managed cloud, VPS hemat, dan custom web system.",
     areaServed: {
       "@type": "Country",
       name: "Indonesia",
     },
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Surabaya",
-      addressRegion: "Jawa Timur",
-      addressCountry: "ID",
-    },
     sameAs: ["https://solusivendor.com"],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "SolusiVendor Product Ecosystem",
+      itemListElement: [
+        {
+          "@type": "OfferCatalog",
+          name: "Website service",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              name: "Website Terima Beres",
+              price: "149000",
+              priceCurrency: "IDR",
+              url: siteUrl,
+            },
+          ],
+        },
+        {
+          "@type": "OfferCatalog",
+          name: "Hosting service",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              name: "SolusiVendor Cloud",
+              price: "10000",
+              priceCurrency: "IDR",
+              url: `${siteUrl}/vps-service`,
+            },
+          ],
+        },
+        {
+          "@type": "OfferCatalog",
+          name: "Cloud/technology service",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              name: "Managed Container VPS",
+              price: "149000",
+              priceCurrency: "IDR",
+              url: `${siteUrl}/vps-service`,
+            },
+          ],
+        },
+      ],
+    },
+    isRelatedTo: {
+      "@type": "Product",
+      name: "DriveOne",
+      description:
+        "DriveOne adalah produk storage dan file hosting by SolusiVendor.",
+      url: `${siteUrl}/driveone`,
+    },
     offers: [
       {
         "@type": "Offer",
         name: "Template Website",
         price: "99000",
         priceCurrency: "IDR",
-        url: `${siteUrl}/templates`,
+        url: `${siteUrl}/buytemplate`,
       },
       {
         "@type": "Offer",
-        name: "Managed Hosting Vendor",
-        price: "49000",
+        name: "SolusiVendor Cloud",
+        price: "10000",
         priceCurrency: "IDR",
         url: `${siteUrl}/vps-service`,
       },
