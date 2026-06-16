@@ -1,7 +1,20 @@
 import type { Metadata } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const siteUrl = "https://solusivendor.com";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -167,7 +180,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="id">
+    <html lang="id" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body>
         <script
           type="application/ld+json"

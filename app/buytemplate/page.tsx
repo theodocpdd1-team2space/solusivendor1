@@ -2,6 +2,8 @@
 
 import React, { useMemo, useState } from "react";
 import Link from "next/link";
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { SiteNavbar } from "@/components/site/SiteNavbar";
 
 const whatsappTemplate =
   "https://wa.me/6281234567890?text=Halo%20SolusiVendor%2C%20saya%20mau%20beli%20template%20website%20promo%2079rb.";
@@ -100,9 +102,8 @@ export default function BuyTemplatePage() {
   }, [activeCategory]);
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#080806] text-[#f4f0e8] selection:bg-[#ff2f1f] selection:text-white">
-      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_78%_0%,rgba(255,47,31,.18),transparent_34rem),radial-gradient(circle_at_10%_20%,rgba(255,255,255,.07),transparent_28rem)]" />
-      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.045] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:72px_72px]" />
+    <main className="site-page min-h-screen overflow-hidden">
+      <SiteNavbar />
 
       <a
         href={whatsappTemplate}
@@ -112,48 +113,7 @@ export default function BuyTemplatePage() {
         WA
       </a>
 
-      <nav className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-[#080806]/80 backdrop-blur-2xl">
-        <div className="mx-auto flex max-w-[92rem] items-center justify-between px-4 py-4 md:px-8 md:py-5">
-          <Link
-            href="/"
-            className="text-2xl font-light tracking-[-0.06em] md:text-3xl"
-          >
-            SOLUSI<span className="font-bold text-[#ff2f1f]">VENDOR</span>
-          </Link>
-
-          <div className="hidden items-center gap-8 lg:flex">
-            {[
-              ["Home", "/"],
-              ["Work", "/#work"],
-              ["Pricing", "/#pricing"],
-              ["Template", "/buytemplate"],
-            ].map(([label, href]) => (
-              <Link
-                key={label}
-                href={href}
-                className={cn(
-                  "text-xs font-bold uppercase tracking-[0.18em] transition",
-                  label === "Template"
-                    ? "text-[#ff2f1f]"
-                    : "text-white/45 hover:text-white"
-                )}
-              >
-                {label}
-              </Link>
-            ))}
-          </div>
-
-          <a
-            href={whatsappTemplate}
-            target="_blank"
-            className="rounded-full bg-[#ff2f1f] px-4 py-3 text-xs font-bold uppercase text-white transition hover:bg-white hover:text-black md:px-5"
-          >
-            Buy Now
-          </a>
-        </div>
-      </nav>
-
-      <section className="relative z-10 px-4 pb-16 pt-32 md:px-8 md:pb-24 md:pt-40">
+      <section className="relative z-10 px-4 pb-16 pt-20 md:px-8 md:pb-24 md:pt-28">
         <div className="mx-auto max-w-[92rem]">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
             <div>
@@ -404,21 +364,14 @@ export default function BuyTemplatePage() {
                 className="group overflow-hidden rounded-[1.6rem] border border-black/10 bg-white/70 p-4 backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-2xl"
               >
                 <div className="relative overflow-hidden rounded-[1.2rem] bg-black">
-                  <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:32px_32px]" />
-
                   <div
                     className={cn(
-                      "relative h-64 p-5 transition duration-500 group-hover:scale-[1.03] md:h-72",
-                      template.id % 5 === 0 &&
-                        "bg-[radial-gradient(circle_at_70%_20%,rgba(255,47,31,.55),transparent_12rem)]",
-                      template.id % 5 === 1 &&
-                        "bg-[radial-gradient(circle_at_30%_10%,rgba(255,255,255,.28),transparent_12rem)]",
-                      template.id % 5 === 2 &&
-                        "bg-[radial-gradient(circle_at_80%_0%,rgba(251,191,36,.55),transparent_12rem)]",
-                      template.id % 5 === 3 &&
-                        "bg-[linear-gradient(135deg,rgba(255,47,31,.42),transparent_45%)]",
-                      template.id % 5 === 4 &&
-                        "bg-[radial-gradient(circle_at_50%_0%,rgba(80,120,255,.35),transparent_12rem)]"
+                      "relative h-64 border border-white/10 bg-[#0c0c0c] p-5 transition duration-500 group-hover:bg-[#111] md:h-72",
+                      template.id % 5 === 0 && "border-[#ff2f1f]/35",
+                      template.id % 5 === 1 && "border-white/18",
+                      template.id % 5 === 2 && "border-[#f4f0e8]/24",
+                      template.id % 5 === 3 && "border-[#ff2f1f]/24",
+                      template.id % 5 === 4 && "border-white/12"
                     )}
                   >
                     <div className="flex items-center justify-between">
@@ -725,78 +678,9 @@ export default function BuyTemplatePage() {
         </div>
       </section>
 
-      <footer className="relative z-10 overflow-hidden bg-[#050505] px-4 py-14 text-[#f4f0e8] md:px-8">
-        <div className="mb-10 flex w-max animate-[marquee_36s_linear_infinite] items-center gap-8 whitespace-nowrap text-white/10">
-          {[...Array(4)].map((_, index) => (
-            <React.Fragment key={index}>
-              <span className="text-[18vw] font-light leading-none tracking-[-0.09em]">
-                SOLUSIVENDOR
-              </span>
-              <span className="text-[18vw] font-light leading-none tracking-[-0.09em]">
-                /
-              </span>
-            </React.Fragment>
-          ))}
-        </div>
-
-        <div className="mx-auto max-w-[92rem]">
-          <div className="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-[1.3fr_.7fr_.7fr]">
-            <div>
-              <p className="text-4xl font-light tracking-[-0.07em]">
-                SOLUSI<span className="font-bold text-[#ff2f1f]">VENDOR</span>
-              </p>
-              <p className="mt-5 max-w-md text-sm font-light leading-7 text-white/45">
-                Template, hosting murah, dan solusi website untuk vendor event
-                yang ingin tampil lebih profesional.
-              </p>
-            </div>
-
-            <div>
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-white/30">
-                Pages
-              </p>
-              <div className="space-y-3 text-sm text-white/55">
-                <Link href="/">Home</Link>
-                <br />
-                <Link href="/buytemplate">Buy Template</Link>
-                <br />
-                <Link href="/#pricing">Pricing</Link>
-              </div>
-            </div>
-
-            <div>
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-white/30">
-                Contact
-              </p>
-              <div className="space-y-3 text-sm text-white/55">
-                <a href={whatsappTemplate} target="_blank">
-                  WhatsApp
-                </a>
-                <br />
-                <a href="#">Instagram</a>
-                <br />
-                <a href="#">Email</a>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-10 flex flex-col justify-between gap-4 text-sm text-white/35 md:flex-row">
-            <p>© 2026 SolusiVendor by vjmrtim.</p>
-            <p>Go digital now.</p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
 
       <style jsx global>{`
-        body {
-          overflow-x: hidden;
-          background: #080806;
-        }
-
-        html {
-          scroll-behavior: smooth;
-        }
-
         @keyframes marquee {
           0% {
             transform: translateX(0);
